@@ -1,0 +1,26 @@
+int a=0;
+int b=0;
+void setup() {
+  // put your setup code here, to run once:
+DDRB =0x01;
+}
+void loop() {
+  // put your main code here, to run repeatedly:
+if(PINB & 4) 
+{
+ 
+    a=1;  
+}
+if ((!(PINB & 4) )&&(a==1)&&(b==0))
+ {  
+ PORTB |=1;
+ a=2;
+ b=1;
+}
+if ((!(PINB & 4) )&&(a==1)&&(b==1))
+ {
+ PORTB &=~1;
+ b=0;
+ a=0;
+}
+}

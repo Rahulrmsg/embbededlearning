@@ -1,0 +1,26 @@
+void setup() {
+  // put your setup code here, to run once:
+  DDRB |=1;
+  DDRB &= ~2;
+  DDRB &= ~4;
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+if((PINB & 2)&&(PINB & 4))
+{
+  PORTB &=~1;
+}
+if(!(PINB & 2)&&!(PINB & 4))
+{
+  PORTB &=~1;
+}
+if(!(PINB & 2)&&(PINB &4))
+{
+  PORTB |=1;
+}
+if((PINB & 2)&&!(PINB & 4))
+{
+  PORTB |=1;
+}
+}
