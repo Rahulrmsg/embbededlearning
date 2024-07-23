@@ -1,0 +1,44 @@
+ int a=0;
+int b=0;
+int x=0;
+void setup() {
+  // put your setup code here, to run once:
+DDRB |= 1;
+DDRB |= 2;
+DDRB &= ~4;
+}
+void loop() {
+  // put your main code here, to run repeatedly:
+  if(PINB & 4)
+  {
+    a=1;
+  }
+  if(!(PINB & 4)&&(a==1))
+  {
+    a=0;
+    x=x+1;
+  }
+switch(x)
+{
+  case 1:
+  PORTB |= 1;
+  PORTB &= ~2; 
+  break;
+
+  case 2:
+  PORTB |= 1;
+  PORTB |= 2;
+  break;
+
+  case 3:
+  PORTB &= ~1;
+  PORTB |= 2;
+  break;
+
+  case 4:
+  PORTB &= ~1;
+  PORTB &= ~2;
+  x=0;
+  break;
+}
+}
